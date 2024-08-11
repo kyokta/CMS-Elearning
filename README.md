@@ -10,4 +10,5 @@ This project is to manage content in [learning.detik.com](https://learning.detik
 - Run **npm run dev**.
 
 In order to see the updates, you can check through from my [gitHub](https://github.com/kyokta/CMS-Elearning)
+
 Created by : Rizky Oktarinanto
