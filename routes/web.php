@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,17 @@ use App\Http\Controllers\TrainingController;
 //     return view('welcome');
 // });
 
-Route::get('/', [TrainingController::class, 'index'])->name('training.dashboard');
-Route::get('/training', [TrainingController::class, 'training'])->name('training.index');
-Route::get('/training/getTopik', [TrainingController::class, 'getTopik'])->name('training.getTopik');
-Route::get('/training/{id}', [TrainingController::class, 'courseTraining'])->name('training.topik');
-Route::post('/training/storeTopik', [TrainingController::class, 'storeTopik'])->name('training.store.topik');
-Route::delete('/training/deleteTopik/{id}', [TrainingController::class, 'deteleTraining'])->name('training.delete.topik');
+Route::prefix('training')->name('training.')->group(function() {
+    Route::get('/dashboard', [TrainingController::class, 'index'])->name('dashboard');
+    Route::get('/', [TrainingController::class, 'training'])->name('index');
+    Route::get('/getTopik', [TrainingController::class, 'getTopik'])->name('getTopik');
+    Route::post('/storeTopik', [TrainingController::class, 'storeTopik'])->name('store.topik');
+    Route::delete('/deleteTopik/{id}', [TrainingController::class, 'deteleTraining'])->name('delete.topik');
+});
+
+Route::prefix('course')->name('course.')->group(function(){
+    Route::get('/', [CourseController::class, 'index'])->name('index');
+    Route::get('/getCourse', [CourseController::class, 'getCourse'])->name('getCourse');
+    Route::post('/storeCourse', [CourseController::class, 'storeTopik'])->name('storeCourse');
+    Route::delete('/deleteCourse/{id}', [CourseController::class, 'deleteCourse'])->name('delete.course');
+});

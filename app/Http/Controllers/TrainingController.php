@@ -13,7 +13,14 @@ class TrainingController extends Controller
 {
     public function index()
     {
-        return view('training.dashboard');
+        $all = TopikTraining::count();
+        $marketing = TopikTraining::where('divisi_id', 1)->count();
+        $it = TopikTraining::where('divisi_id', 2)->count();
+        $human_capital = TopikTraining::where('divisi_id', 3)->count();
+        $product = TopikTraining::where('divisi_id', 4)->count();
+        $redaksi = TopikTraining::where('divisi_id', 5)->count();
+
+        return view('training.dashboard', compact('all', 'marketing', 'it', 'human_capital', 'product', 'redaksi'));
     }
 
     public function training()
@@ -28,7 +35,7 @@ class TrainingController extends Controller
         $divisi = $request->input('divisi');
 
         $query = TopikTraining::with(['divisi', 'courses'])->withCount('courses');
-        
+
         if ($divisi !== 'semua') {
             $query->where('divisi_id', $divisi);
         }
