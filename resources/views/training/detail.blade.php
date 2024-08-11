@@ -87,13 +87,13 @@
     </div>
 </div>
 
+<!-- Modal -->
 <div id="addTraining" tabindex="-1" aria-hidden="true"
     class="hidden fixed inset-0 z-50 overflow-y-auto overflow-x-hidden flex justify-center items-center w-full h-full bg-black bg-opacity-50">
     <div class="relative p-4 w-full max-w-2xl">
         <div class="relative bg-white rounded-lg shadow dark:bg-white">
-            <!-- Modal Header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-semibold text-gray-900">Tambah Training</h3>
+                <h3 class="text-xl font-semibold text-gray-900">Tambah Materi</h3>
                 <button type="button"
                     class="closeModal text-gray-400 bg-transparent hover:bg-gray-900 hover:text-gray-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
                     <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -103,49 +103,24 @@
                     </svg>
                 </button>
             </div>
-
-            <!-- Modal Body -->
-            <form id="trainingForm">
-                <div class="p-4 md:p-5 space-y-4 mx-10">
-                    <div class="flex items-center mb-4">
-                        <label for="coverTraining" class="w-1/3 text-gray-700">Cover</label>
-                        <input type="file" id="coverTraining" name="coverTraining"
-                            class="w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <label for="titleTraining" class="w-1/3 text-gray-700">Judul</label>
-                        <input type="text" id="titleTraining" name="titleTraining"
-                            class="w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <label for="divisi" class="w-1/3 text-gray-700">Divisi</label>
-                        <select id="divisi" name="divisi"
-                            class="w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
-                            <option value=""></option>
-                            @foreach($divisi as $div)
-                            <option value="{{ $div->id }}">{{ $div->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Modal Footer -->
-                <div
-                    class="flex items-center justify-end p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600 gap-4">
-                    <button type="button" id="btnSubmitTraining"
-                        class="text-white bg-gray-800 hover:bg-gray-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        Simpan
-                    </button>
-                    <button type="button"
-                        class="closeModal text-gray-800 bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                        Batal
-                    </button>
-                </div>
-            </form>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5 space-y-4">
+                <!-- Isi Modal -->
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600 gap-4">
+                <button type="button"
+                    class="text-white bg-gray-800 hover:bg-gray-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    Simpan
+                </button>
+                <button type="button"
+                    class="closeModal text-white bg-gray-400 hover:bg-gray-800 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    Batal
+                </button>
+            </div>
         </div>
     </div>
 </div>
-
 @endsection
 
 @push('scripts')

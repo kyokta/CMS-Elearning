@@ -20,5 +20,7 @@ use App\Http\Controllers\TrainingController;
 
 Route::get('/', [TrainingController::class, 'index'])->name('training.dashboard');
 Route::get('/training', [TrainingController::class, 'training'])->name('training.index');
+Route::get('/training/getTopik', [TrainingController::class, 'getTopik'])->name('training.getTopik');
 Route::get('/training/{id}', [TrainingController::class, 'courseTraining'])->name('training.topik');
 Route::post('/training/storeTopik', [TrainingController::class, 'storeTopik'])->name('training.store.topik');
+Route::delete('/training/deleteTopik/{id}', [TrainingController::class, 'deteleTraining'])->name('training.delete.topik');

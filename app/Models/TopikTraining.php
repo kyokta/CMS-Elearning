@@ -16,7 +16,7 @@ class TopikTraining extends Model
     protected $fillable = [
         'cover',
         'title',
-        'divisi'
+        'divisi_id'
     ];
 
     public function divisi()
